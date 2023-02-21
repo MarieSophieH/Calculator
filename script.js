@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const equalButton = document.getElementById("equal");
     const plusMinusButton = document.getElementById("plusMinus");
     const decimalPointButton = document.getElementById("decimalPoint");
+    const percentButton = document.getElementById("percent");
 
 
 
@@ -177,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
     plusMinusButton.addEventListener("click", function() {
         let secondNumber = parseFloat(textDiv.textContent);
         result = -secondNumber;
-        cue = 0;
+        resetScreen = false;
         textDiv.textContent = result;
         operator = "add";
         decimalDisabled = false;
@@ -190,6 +191,15 @@ document.addEventListener("DOMContentLoaded", function() {
             decimalDisabled = true;
         }
     }
+    })
+
+    percentButton.addEventListener("click", function() {
+        let secondNumber = parseFloat(textDiv.textContent);
+        result = secondNumber / 100;
+        resetScreen = false;
+        textDiv.textContent = result;
+        operator = "add";
+        decimalDisabled = false;
     })
 
     function operate(a,b) {

@@ -18,11 +18,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const divideButton = document.getElementById("divide");
     const equalButton = document.getElementById("equal");
     const plusMinusButton = document.getElementById("plusMinus");
+    const decimalPointButton = document.getElementById("decimalPoint");
+
 
 
     let result = 0;
     let operator = "add";
-    let resetScreen = true;
+    let resetScreen = false;
+    let decimalDisabled = false;
+    
 
     zeroButton.addEventListener("click", function() {
         if (resetScreen == true) {
@@ -120,43 +124,48 @@ document.addEventListener("DOMContentLoaded", function() {
         textDiv.textContent = "";
         result = 0;
         operator = "add";
+        decimalDisabled = false;
     });
 
     addButton.addEventListener("click", function() {
-        let secondNumber = parseInt(textDiv.textContent);
-        result = parseInt(operate(result, secondNumber));
+        let secondNumber = parseFloat(textDiv.textContent);
+        result = Math.round((operate(result, secondNumber)) * 10000000000000) / 10000000000000;
         resetScreen = false;
         textDiv.textContent = result;
         operator = "add";
+        decimalDisabled = false;
     });
 
     subtractButton.addEventListener("click", function() {
-        let secondNumber = parseInt(textDiv.textContent);
-        result = parseInt(operate(result, secondNumber));
+        let secondNumber = parseFloat(textDiv.textContent);
+        result = Math.round((operate(result, secondNumber)) * 10000000000000) / 10000000000000;
         resetScreen = false;
         textDiv.textContent = result;
         operator = "subtract";
+        decimalDisabled = false;
     });
 
     multiplyButton.addEventListener("click", function() {
-        let secondNumber = parseInt(textDiv.textContent);
-        result = parseInt(operate(result, secondNumber));
+        let secondNumber = parseFloat(textDiv.textContent);
+        result = Math.round((operate(result, secondNumber)) * 10000000000000) / 10000000000000;
         resetScreen = false;
         textDiv.textContent = result;
         operator = "multiply";
+        decimalDisabled = false;
     });
 
     divideButton.addEventListener("click", function() {
-        let secondNumber = parseInt(textDiv.textContent);
-        result = parseInt(operate(result, secondNumber));
+        let secondNumber = parseFloat(textDiv.textContent);
+        result = Math.round((operate(result, secondNumber)) * 10000000000000) / 10000000000000;
         resetScreen = false;
         textDiv.textContent = result;
         operator = "divide";
+        decimalDisabled = false;
     });
 
     equalButton.addEventListener("click", function() {
-        let secondNumber = parseInt(textDiv.textContent);
-        result = parseInt(operate(result, secondNumber));
+        let secondNumber = parseFloat(textDiv.textContent);
+        result = Math.round((operate(result, secondNumber)) * 10000000000000) / 10000000000000;
         resetScreen = false;
         textDiv.textContent = result;
         result = 0;
@@ -171,6 +180,16 @@ document.addEventListener("DOMContentLoaded", function() {
         cue = 0;
         textDiv.textContent = result;
         operator = "add";
+        decimalDisabled = false;
+    })
+
+    decimalPointButton.addEventListener("click", function () {
+        if (resetScreen === true) {
+        if (decimalDisabled === false) {        
+            textDiv.textContent += ".";
+            decimalDisabled = true;
+        }
+    }
     })
 
     function operate(a,b) {

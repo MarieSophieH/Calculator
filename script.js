@@ -202,6 +202,48 @@ document.addEventListener("DOMContentLoaded", function() {
         decimalDisabled = false;
     })
 
+    const numberButtons = document.querySelectorAll('.numberButton');
+    const operatorButtons = document.querySelectorAll('.operatorButton');
+    const otherOperationsButton = document.querySelectorAll('.otherOperationsButton');
+
+    numberButtons.forEach((button) => {
+      button.addEventListener('mousedown', () => {
+        button.classList.add('clickedNumberButton');
+      });
+    
+    button.addEventListener('mouseup', () => {
+        button.classList.remove('clickedNumberButton');
+      });
+    });
+
+    operatorButtons.forEach((button) => {
+        button.addEventListener('mousedown', () => {
+          button.classList.add('clickedOperatorButton');
+        });
+      
+        button.addEventListener('mouseup', () => {
+          button.classList.remove('clickedOperatorButton');
+        });
+      });
+
+    otherOperationsButton.forEach((button) => {
+        button.addEventListener('mousedown', () => {
+          button.classList.add('clickedOtherOperationsButton');
+        });
+      
+    button.addEventListener('mouseup', () => {
+          button.classList.remove('clickedOtherOperationsButton');
+        });
+      });
+
+      zeroButton.addEventListener('mousedown', () => {
+        zeroButton.classList.add('clickedZeroButton');
+      });
+      
+      zeroButton.addEventListener('mouseup', () => {
+        zeroButton.classList.remove('clickedZeroButton');
+      });
+      
     function operate(a,b) {
 
         if (operator === "add") {

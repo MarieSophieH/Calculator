@@ -83,7 +83,21 @@ body {
     border-bottom-right-radius: 10px;
 }
 
+.clickedNumberButton {
+    background-color: #9E9E9E;
+}
 
+.clickedOperatorButton {
+    background-color: #CB7D07;
+}
+
+.clickedOtherOperationsButton {
+    background-color: #606265;
+}
+
+.clickedZeroButton {
+    background-color: #9E9E9E;  
+}
 
 
 

@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const multiplyButton = document.getElementById("multiply");
     const divideButton = document.getElementById("divide");
     const equalButton = document.getElementById("equal");
+    const plusMinusButton = document.getElementById("plusMinus");
 
 
     let result = 0;
@@ -162,6 +163,14 @@ document.addEventListener("DOMContentLoaded", function() {
         operator = "add";
         secondNumber = "";
         resetScreen = false;
+    })
+
+    plusMinusButton.addEventListener("click", function() {
+        let secondNumber = parseFloat(textDiv.textContent);
+        result = -secondNumber;
+        cue = 0;
+        textDiv.textContent = result;
+        operator = "add";
     })
 
     function operate(a,b) {
